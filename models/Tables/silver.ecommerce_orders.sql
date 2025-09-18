@@ -1,27 +1,18 @@
+-- models/silver/ecommerce_orders.sql
 
-/*
-    Welcome to your first dbt model!
-    Did you know that you can also configure models directly within SQL files?
-    This will override configurations stated in dbt_project.yml
-
-    Try changing "table" to "view" below
-*/
-
-{{ config(materialized='table') }}
-
-with source_data as (
-
-    select 1 as id
-    union all
-    select null as id
-
+WITH cleaned AS (
+    SELECT
+        InvoiceNo AS invoice_no,
+        StockCode AS stock_code,
+        INITCAP(Description) AS description,
+        Quantity AS quantity,
+        TRY_TO_TIMESTAMP(InvoiceDate) AS invoice_ts,
+        UnitPrice AS unit_price,
+        ROUND(Quantity * UnitPrice, 2) AS total_amount,
+        CustomerID AS customer_id,
+        INITCAP(Country) AS country
+    FROM {{ source('bronze', 'ecommerce_raw') }}
+    WHERE Quantity > 0
+      AND UnitPrice > 0
 )
-
-select *
-from source_data
-
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
-
--- where id is not null
+SELECT * FROM cleaned;
