@@ -11,7 +11,7 @@ WITH cleaned AS (
         ROUND(Quantity * UnitPrice, 2) AS total_amount,
         CustomerID AS customer_id,
         INITCAP(Country) AS country
-    FROM {{ source('bronze', 'ecommerce_raw') }}
+    FROM "BRONZE"."PUBLIC"."ONLINEORDERS" 
     WHERE Quantity > 0
       AND UnitPrice > 0
 )
