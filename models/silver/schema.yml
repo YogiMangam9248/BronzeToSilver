@@ -1,0 +1,9 @@
+
+version: 2
+
+models:
+    - name: silver.ecommerceorders
+      description: "Silver Ecommerce orders table"
+      
+
+    

@@ -1,5 +1,3 @@
--- models/silver/ecommerce_orders.sql
-
 WITH cleaned AS (
     SELECT
         InvoiceNo AS invoice_no,
@@ -11,8 +9,8 @@ WITH cleaned AS (
         ROUND(Quantity * UnitPrice, 2) AS total_amount,
         CustomerID AS customer_id,
         INITCAP(Country) AS country
-    FROM "BRONZE"."PUBLIC"."ONLINEORDERS" 
+    FROM "BRONZE"."PUBLIC"."ONLINEORDERS"
     WHERE Quantity > 0
       AND UnitPrice > 0
 )
-SELECT * FROM cleaned;
+SELECT * FROM cleaned
