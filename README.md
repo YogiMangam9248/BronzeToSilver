@@ -1,8 +1,7 @@
-Welcome to your new dbt project!
+This project demonstrates an **end-to-end ELT workflow** using **dbt Cloud** and **Snowflake**, with a focus on transforming raw transactional data from a Bronze layer into a cleaned and aggregated Silver layer.
+# dbt 
 
-# 🏗️ My New dbt Project
-
-This project demonstrates a simple **bronze → silver data pipeline** using **Snowflake** as the data warehouse and **dbt Cloud** for transformations.
+This project demonstrates a simple **bronze → silver data pipeline** using **Snowflake** as the data warehouse and **dbt Cloud** for transformations. The pipeline uses a **Kaggle dataset of online retail transactions** as the source data to simulate real-world e-commerce data.
 
 ---
 
