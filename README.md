@@ -10,33 +10,50 @@ Step 1: **bronze → silver data pipeline** using **Snowflake** as the data ware
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Overview
 
-```
-models/
-  silver/
-    ecommerce_orders.sql   # Cleans raw orders data from BRONZE layer
-    customers.sql          # Aggregates orders to customer-level metrics
-```
+### Bronze Layer
+- **Purpose:** Raw ingestion layer for traceability.
+- **Source Table:** `"BRONZE"."PUBLIC"."ONLINEORDERS"` from Kaggle dataset.
+- **Content:** All raw e-commerce transactions including InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, and Country.
+
+### Silver Layer
+- **Purpose:** Cleaned and validated data ready for analytics.
+- **Models:**
+  1. **`silver.ecommerce_orders`**
+     - Cleans raw online orders by removing negative quantities or prices.
+     - Standardizes text fields (`Description`, `Country`) and computes `total_amount`.
+  2. **`silver.customers`**
+     - Aggregates orders at the customer level.
+     - Computes metrics: `total_orders` and `total_spent` per customer.
+- **Schema:** `SILVER`
+
+### Gold Layer
+- **Purpose:** Analytics-ready aggregated data.
+- **Model:**
+  1. **`gold.customer_summary`**
+     - Combines customer-level metrics (`total_orders`, `total_spent`) and country-level metrics:
+       - Number of customers per country
+       - Total spend per country
+       - Average spend per customer
+     - Ranks customers within their country based on total spend.
+- **Schema:** `GOLD`
 
 ---
 
 ## 🔗 Data Flow
 
-**Source Table:**  
-`"BRONZE"."PUBLIC"."ONLINEORDERS"`
-
-**Silver Models:**
-1. **`silver.ecommerce_orders`**
-   - Cleans raw data (removes negative quantities, normalizes description, computes `total_amount`).
-2. **`silver.customers`**
-   - Aggregates customer-level metrics:
-     - `total_orders`
-     - `total_spent`
-     - grouped by `customer_id` & `country`.
+```
+Bronze (raw data)
+      |
+      v
+Silver (cleaned & aggregated)
+      |
+      v
+Gold (analytics-ready & aggregated)
+```
 
 ---
-
 ## 🏃‍♂️ How to Run
 
 Run both silver models:
@@ -94,7 +111,7 @@ dbt test --select silver
 ---
 
 ## 👤 Author
-Yogi — building an end-to-end ELT pipeline for learning dbt + Snowflake.
+Yogi Mangam
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
