@@ -1,7 +1,12 @@
-This project demonstrates an **end-to-end ELT workflow** using **dbt Cloud** and **Snowflake**, with a focus on transforming raw transactional data from a Bronze layer into a cleaned and aggregated Silver layer.
-# dbt 
+This project demonstrates an **end-to-end ELT workflow** using **dbt Cloud** and **Snowflake**
+# multi-layered ELT pipeline using dbt and Snowflake:
 
-This project demonstrates a simple **bronze → silver data pipeline** using **Snowflake** as the data warehouse and **dbt Cloud** for transformations. The pipeline uses a **Kaggle dataset of online retail transactions** as the source data to simulate real-world e-commerce data.
+- **Bronze layer**: Raw, unprocessed data directly ingested from the source (in this case, a Kaggle online retail dataset). This layer preserves the original data for traceability and auditing.  
+- **Silver layer**: Cleansed and validated data derived from Bronze. Here, transformations standardize fields, filter out invalid records, rename columns based on business needs and minimum data validations.  
+- **Gold layer**: Aggregated, business-ready data built from the Silver layer. This layer is optimized for analytics, dashboards, and reporting, providing insights such as customer-level metrics or sales trends.
+
+
+Step 1: **bronze → silver data pipeline** using **Snowflake** as the data warehouse and **dbt Cloud** for transformations. The pipeline uses a **Kaggle dataset of online retail transactions** as the source data to simulate real-world e-commerce data.
 
 ---
 
