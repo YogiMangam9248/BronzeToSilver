@@ -70,28 +70,18 @@ dbt ls --resource-type model
 
 ---
 
-## 🧪 Testing (Optional)
+## 🧪 Add Description  (Optional)
 
-Add simple data tests in `models/silver/schema.yml`:
+Add simple data description in `models/silver/schema.yml`:
 
 ```yaml
 version: 2
 
 models:
   - name: ecommerce_orders
-    columns:
-      - name: invoice_no
-        tests:
-          - not_null
-      - name: total_amount
-        tests:
-          - not_null
-
+      description: "Silver Ecommerce orders table"
   - name: customers
-    columns:
-      - name: customer_id
-        tests:
-          - not_null
+      description: "Extracting Unique customers from Bronze layer "
 ```
 
 Run tests:
@@ -111,10 +101,10 @@ dbt test --select silver
 ![Gold Level Transformation](docs/GoldLevelTransformation.png)
 ---
 
-## 📊 Next Steps
+## 📊 Potential Next work
 
-- Add **gold models** for dashboards (e.g., monthly sales trends).
-- Add **dbt snapshots** if you need historical tracking.
+- Create more Silver/ Gold tarnsformation based on requirement 
+- Create PowerBI dashbords using **gold models** ( monthly sales trends).
 - Schedule runs in dbt Cloud for automation.
 
 ---
