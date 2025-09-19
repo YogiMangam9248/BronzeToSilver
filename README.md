@@ -50,7 +50,7 @@ Gold (analytics-ready & aggregated)
 ```
 
 ---
-## 🏃‍♂️ How to Run
+##  How to Run
 
 Run both silver models:
 
