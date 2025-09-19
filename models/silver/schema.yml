@@ -6,7 +6,7 @@ models:
       description: "Silver Ecommerce orders table"
 
     - name: customers
-      description: "Extracting Unique customers from Bronze layer and "
+      description: "Extracting Unique customers from Bronze layer "
       
 
     

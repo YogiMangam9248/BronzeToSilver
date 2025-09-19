@@ -5,7 +5,7 @@ WITH customer_rank AS (
         total_orders,
         total_spent,
         RANK() OVER (PARTITION BY country ORDER BY total_spent DESC) AS rank_by_country
-    FROM {{ ref('silver.customers') }}
+    FROM {{ ref('customers') }}
 ),
 
 country_summary AS (
@@ -14,7 +14,7 @@ country_summary AS (
         COUNT(DISTINCT customer_id) AS num_customers,
         SUM(total_spent) AS country_total_spent,
         AVG(total_spent) AS avg_spent_per_customer
-    FROM {{ ref('silver.customers') }}
+    FROM {{ ref('customers') }}
     GROUP BY country
 )
 
