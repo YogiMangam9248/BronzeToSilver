@@ -2,8 +2,11 @@
 version: 2
 
 models:
-    - name: silver.ecommerceorders
+    - name: ecommerce_orders
       description: "Silver Ecommerce orders table"
+
+    - name: customers
+      description: "Extracting Unique customers from Bronze layer and "
       
 
     
