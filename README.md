@@ -99,7 +99,16 @@ Run tests:
 ```bash
 dbt test --select silver
 ```
+## 📊 Project Results
 
+### Bronze Layer Example
+![Bronze Layer](docs/Bronze(ASIS).png)
+
+### Silver Layer Example
+![Silver Layer Transformation](docs/SilverLevelTransformation.png)
+
+### Gold Layer Example
+![Gold Level Transformation](docs/GoldLevelTransformation.png)
 ---
 
 ## 📊 Next Steps
