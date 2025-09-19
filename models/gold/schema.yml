@@ -1,0 +1,6 @@
+
+version: 2
+
+models:
+    - name: customer_summary
+      description: "Gold-level table aggregating customer metrics, including total orders, total spend, and country-level summaries, for analytics and reporting purposes."
