@@ -8,6 +8,7 @@ This project demonstrates an **end-to-end ELT workflow** using **dbt Cloud** and
 
 Step 1: **bronze → silver data pipeline** using **Snowflake** as the data warehouse and **dbt Cloud** for transformations. The pipeline uses a **Kaggle dataset of online retail transactions** as the source data to simulate real-world e-commerce data.
 
+Step 2: **Silver → Gold data pipeline** 
 ---
 
 ## 📂 Project Overview
